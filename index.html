@@ -28,6 +28,18 @@
         display: block;
         margin: 10px auto;
     }
+
+    button{
+        background-color: #4682B4;
+        width: 200px;
+        height: 40px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .btn-load{
+        padding: 30px 0;
+    }
 </style>
 <body>
     <div class="header">App Gallery</div>
@@ -40,16 +52,36 @@
     </div>
     <!--Fim Galeria-->
 
-    <div class="btn-load"><button>Carregar Mais!</button></div>
+    <div class="btn-load"><button id="carregar-mais">Carregar Mais!</button></div>
 
     <script>
 
         var galeria = document.getElementById('galeria');
         var quantidadeImagensIniciais = 10;
+        var carregarMais = document.getElementById('carregar-mais');
+        var controle = 0;
 
         for(var i = 0; i < quantidadeImagensIniciais; i++){
             galeria.innerHTML+=`<img src="https://picsum.photos/400/250?random=`+i+`">`;
         }
+
+        carregarMais.addEventListener('click',()=>{
+            
+            for(var i = 0; i < quantidadeImagensIniciais; i++){
+
+                let image = document.createElement('img');
+                image.src = 'https://picsum.photos/400/250?random='+controle;
+                carregarMais.innerHTML = "carregando...";
+                image.addEventListener('load',function(){
+                    carregarMais.innerHTML = "Carregar Mais!";
+                })
+                galeria.appendChild(image);
+
+                controle++;
+
+            }
+
+        })
 
     </script>
 

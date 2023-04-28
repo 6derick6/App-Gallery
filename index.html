@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+</head>
+<style>
+    *{
+        margin:0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .header{
+        background-color: #4682B4;
+        text-align: center;
+        width: 100%;
+        color: white;
+        font-size: 26px;
+        padding: 20px 0;
+        font-weight: 700;
+    }
+
+    img{
+        max-width: 100%;
+        width: 90%;
+        display: block;
+        margin: 10px auto;
+    }
+</style>
+<body>
+    <div class="header">App Gallery</div>
+
+    <!--Inicio Galeria-->
+    <div class="galeria" id="galeria">
+
+        
+
+    </div>
+    <!--Fim Galeria-->
+
+    <div class="btn-load"><button>Carregar Mais!</button></div>
+
+    <script>
+
+        var galeria = document.getElementById('galeria');
+        var quantidadeImagensIniciais = 10;
+
+        for(var i = 0; i < quantidadeImagensIniciais; i++){
+            galeria.innerHTML+=`<img src="https://picsum.photos/400/250?random=`+i+`">`;
+        }
+
+    </script>
+
+</body>
+</html>
